@@ -1,0 +1,27 @@
+package Package1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class session {
+	ChromeDriver driver;
+	public void open()
+	{
+		System.setProperty("webdriver.chrome.driver","D:\\SDM_Exam\\Library\\chromedriver.exe");
+		driver =new ChromeDriver();
+		driver.get("https://www.w3schools.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.linkText("Sign Up")).click();
+		driver.findElement(By.xpath("//*[@id=\"signUpFromSignup\"]")).click();
+		driver.findElement(By.name("email")).sendKeys("namitamaurya05@gmail.com");
+		driver.findElement(By.name("new-password")).sendKeys("Namita@050");
+	}
+	
+
+	public static void main(String[] args) {
+		session o=new session();
+		o.open();
+
+	}
+
+}

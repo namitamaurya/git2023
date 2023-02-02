@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author nikhi
+ *
+ */
+module Project1 {
+	requires org.seleniumhq.selenium.grid;
+}

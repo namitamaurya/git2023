@@ -1,0 +1,53 @@
+package Package1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class session {
+	ChromeDriver driver;
+	public void open()
+	{
+		System.setProperty("webdriver.chrome.driver","D:\\SDM_Exam\\Library\\chromedriver.exe");
+		driver =new ChromeDriver();
+		driver.get("https://www.w3schools.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.linkText("Sign Up")).click();
+		
+	}
+	public void credentials() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("/html/body/div[5]/div[1]/div/div[1]/div/a")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[4]/div[1]/div/div[2]/form/div[1]/div[2]/input")).sendKeys("nami05@gmail.com");
+		driver.findElement(By.id("new-password")).sendKeys("Namita@05");
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[4]/div[1]/div/div[5]/div[1]/button")).click();
+	}
+	
+	public void name() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		driver.findElement(By.name("first_name")).sendKeys("Namita");
+		Thread.sleep(5000);
+		driver.findElement(By.name("last_name")).sendKeys("Maurya");
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[4]/div[1]/div/div[3]/div/button")).click();
+		
+	}
+	
+	public void search() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("/html/body/div[1]/div/div/div[4]/div[1]/div/div[3]/div[1]/button")).click();
+		
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		session o=new session();
+		o.open();
+		o.credentials();
+		o.name();
+        o.search();
+	}
+
+}
